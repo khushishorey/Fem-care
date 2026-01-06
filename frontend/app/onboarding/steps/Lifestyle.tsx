@@ -5,6 +5,7 @@ import { OnboardingData } from "../onboarding.types";
 import { Button } from "../../../components/ui/Button";
 import { Card } from "../../../components/ui/Card";
 import ProgressIndicator from "../ProgressIndicator";
+import { useRouter } from "next/navigation";
 
 interface LifestyleProps {
   data: OnboardingData;
@@ -18,6 +19,8 @@ export default function Lifestyle({
   onBack,
 }: LifestyleProps) {
   const [isValid, setIsValid] = useState(false);
+
+const router = useRouter()
 
   useEffect(() => {
     if (
@@ -148,6 +151,7 @@ export default function Lifestyle({
           <Button
             className="w-full bg-[#E76F8A] hover:bg-[#dd5f7c] text-white"
             disabled={!isValid}
+            onClick={() => {router.push('./../user/dashboard')}}
           >
             Finish →
           </Button>
